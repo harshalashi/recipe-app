@@ -3,11 +3,11 @@ import React from 'react';
 import IngredientList from '../ingredient/IngredientList';
 
 const Recipe = (props) => {
-  const { name, cookTime, servings, instructions, ingredients } = props;
+  // const { name, cookTime, servings, instructions, ingredients } = props;
   return (
     <div>
       <div>
-        <h3>{name}</h3>
+        <h3>{props.name}</h3>
         <div>
           <button>Edit</button>
           <button>Delete</button>
@@ -15,20 +15,20 @@ const Recipe = (props) => {
       </div>
       <div>
         <span>Cook Time: </span>
-        <span>{cookTime}</span>
+        <span>{props.cookTime}</span>
       </div>
       <div>
         <span>Servings: </span>
-        <span>{servings}</span>
+        <span>{props.servings}</span>
       </div>
       <div>
         <span>Instructions: </span>
-        <div>{instructions}</div>
+        <div>{props.instructions}</div>
       </div>
       <div>
         <span>Ingredients: </span>
         <div>
-          <IngredientList ingredients={ingredients} />
+          <IngredientList ingredients={props.ingredients} />
         </div>
       </div>
     </div>

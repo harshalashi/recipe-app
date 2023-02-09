@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeList from './components/recipe/RecipeList';
+import './components/css/app.css';
 
 const App = () => {
   return (
