@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeList from './components/RecipeList';
+import RecipeList from './components/recipe/RecipeList';
 
 const App = () => {
   return (
@@ -17,6 +17,18 @@ const sampleRecipes = [
     cookTime: '1:45',
     instructions:
       '1. Put salt on Chicken\n2. Put chicken in oven\n3. Eat Chicken</span>',
+    ingredients: [
+      {
+        id: 1,
+        name: 'Chicken',
+        amount: '2 Pounds',
+      },
+      {
+        id: 2,
+        name: 'Salt',
+        amount: '1 Tbsp',
+      },
+    ],
   },
   {
     id: 2,
@@ -25,6 +37,18 @@ const sampleRecipes = [
     cookTime: '0:45',
     instructions:
       '1. Put salt on Pork\n2. Put Pork in oven\n3. Eat Chicken</span>',
+    ingredients: [
+      {
+        id: 1,
+        name: 'Porks',
+        amount: '3 Pounds',
+      },
+      {
+        id: 2,
+        name: 'Paprika',
+        amount: '3 Tbsp',
+      },
+    ],
   },
 ];
 
