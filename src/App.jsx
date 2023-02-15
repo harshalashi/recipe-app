@@ -17,7 +17,7 @@ const sampleRecipes = [
     servings: 3,
     cookTime: '1:45',
     instructions:
-      '1. Put salt on Chicken\n2. Put chicken in oven\n3. Eat Chicken</span>',
+      '1. Put salt on Chicken\n2. Put chicken in oven\n3. Eat Chicken',
     ingredients: [
       {
         id: 1,
@@ -36,8 +36,7 @@ const sampleRecipes = [
     name: 'Plain Porks',
     servings: 1,
     cookTime: '0:45',
-    instructions:
-      '1. Put salt on Pork\n2. Put Pork in oven\n3. Eat Chicken</span>',
+    instructions: '1. Put salt on Pork\n2. Put Pork in oven\n3. Eat Chicken',
     ingredients: [
       {
         id: 1,
