@@ -3,6 +3,8 @@ import RecipeList from './components/recipe/RecipeList';
 import './components/css/app.css';
 import { v4 as uuidv4 } from 'uuid';
 
+export const RecipeContext = React.createContext();
+
 const App = () => {
   const [recipes, setRecipes] = useState(sampleRecipes);
 
@@ -28,14 +30,15 @@ const App = () => {
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   };
 
+  const recipeContextValue = {
+    handleAddRecipe,
+    handleDeleteRecipe,
+  };
+
   return (
-    <div>
-      <RecipeList
-        recipes={recipes}
-        handleAddRecipe={handleAddRecipe}
-        handleDeleteRecipe={handleDeleteRecipe}
-      />
-    </div>
+    <RecipeContext.Provider value={recipeContextValue}>
+      <RecipeList recipes={recipes} />
+    </RecipeContext.Provider>
   );
 };
 
