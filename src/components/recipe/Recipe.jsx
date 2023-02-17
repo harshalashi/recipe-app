@@ -10,7 +10,12 @@ const Recipe = (props) => {
         <h3 className="recipe__title">{props.name}</h3>
         <div>
           <button className="btn btn--primary mr-1">Edit</button>
-          <button className="btn btn--danger">Delete</button>
+          <button
+            className="btn btn--danger"
+            onClick={() => props.handleDeleteRecipe(props.id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
       <div className="recipe__row">
