@@ -1,12 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import RecipeList from './components/recipe/RecipeList';
 import './components/css/app.css';
 import { v4 as uuidv4 } from 'uuid';
 
 export const RecipeContext = React.createContext();
 
+const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes';
+
 const App = () => {
-  const [recipes, setRecipes] = useState(sampleRecipes);
+  const [recipes, setRecipes] = useState(() => {
+    return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || []);
+  });
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
+  }, [recipes]);
+
+  //Solution for without React.StrictMode
+
+  // const [recipes, setRecipes] = useState(sampleRecipes);
+
+  // useEffect(() => {
+  //   const recipeJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
+  //   if (recipeJSON != null) setRecipes(JSON.parse(recipeJSON));
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(recipes));
+  // }, [recipes]);
 
   const handleAddRecipe = () => {
     const newRecipe = {
