@@ -1,10 +1,19 @@
 import React from 'react';
+import Ingredient from '../ingredient/Ingredient';
 
-const RecipeIngredientEdit = () => {
+const RecipeIngredientEdit = ({ ingredient }) => {
   return (
     <>
-      <input className="recipe-edit__input" type="text" />
-      <input className="recipe-edit__input" type="text" />
+      <input
+        value={ingredient.name}
+        className="recipe-edit__input"
+        type="text"
+      />
+      <input
+        value={ingredient.amount}
+        className="recipe-edit__input"
+        type="text"
+      />
       <button className="btn btn--danger">&times;</button>
     </>
   );

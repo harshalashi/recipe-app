@@ -19,7 +19,13 @@ const App = () => {
 
   //Solution for without React.StrictMode
 
+  const [selectedRecipeId, setSelectedRecipeId] = useState();
+
   const [recipes, setRecipes] = useState(sampleRecipes);
+
+  const selectedRecipe = recipes.find(
+    (recipe) => recipe.id === selectedRecipeId
+  );
 
   useEffect(() => {
     const recipeJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -51,16 +57,20 @@ const App = () => {
   const handleDeleteRecipe = (id) => {
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   };
+  const handleRecipeSelect = (id) => {
+    setSelectedRecipeId(id);
+  };
 
   const recipeContextValue = {
     handleAddRecipe,
     handleDeleteRecipe,
+    handleRecipeSelect,
   };
 
   return (
     <RecipeContext.Provider value={recipeContextValue}>
       <RecipeList recipes={recipes} />
-      <RecipeEdit />
+      {selectedRecipe && <RecipeEdit recipe={selectedRecipe} />}
     </RecipeContext.Provider>
   );
 };
